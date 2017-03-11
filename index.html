@@ -2,12 +2,32 @@
 <html>
 	<head>
 		<title>TheCrypt</title>
+		<!--FAVICON -->
+		<link rel="icon" type="image/x-icon" href="res/img/TheCrypt.ico">
+		<!-- END FAVICON -->
+		<!-- FONTS -->
+		<link href='http://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
+		<!-- END FONTS -->
+		<!-- CSS -->
 		<link rel="stylesheet" href="res/css/style.css">
+		<!-- END CSS -->
+		<!-- AWESOME ICONS -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!-- END AWESOME ICONS -->
+		<meta charset="UTF-8">
 	</head>
-	<body>
-		<div class="mainLayout">
+	<body onload="renderLeftPanel()">
+		<div class="mainPanel">
+			<div id="leftPanel" class="leftPanel"></div>
+			<div class="rightPanel">
+				<div class="rpHeader">HOME</div><hr>
+				<div class="rpContent">
+					<i class="fa fa-exclamation-triangle" style="font-size:200%;"></i><br>
+					The site is UNDER CONSTRUCTION, it will be done soon thanks for your patience!
+				</div>
+			</div>
 		</div>
-
+		<script src="res/js/script.js"></script>
 	</body>
 </html>
 

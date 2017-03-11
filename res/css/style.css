@@ -2,37 +2,146 @@
 
 body{
 	background-color: #000000;
+	font-family: 'Acme';
+	
+	/*These margin rules remove the surrounding border of the html body*/
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px
 }
 
-
-.mainLayout{
+.mainPanel{
 	position: absolute;
 	width: 100%;
-	height:100%;
+	height: 100%;
+	border-collapse: collapse;
+	border: none;
 }
 
-
-/*
-html{
-	box-sizing: border-box;
-}
-
-body{
-
-}
-
-.leftPanel{
-	position: absolute;
-	background-color: #bcbcbc;
+.leftPanel{ /*abbreviated here on as 'lp' */
 	width: 20%;
-	height: 100%;
+	height:100%;
+	background-color: yellow;
+	display:inline;
+	float: left;
 }
 
-.rightPanel{
-	position: absolute;
-	background-color: #000000;
+.rightPanel{ /*abbreviated here on as 'rp' */
 	width: 80%;
-	height: 100%;
+	height:100%;
+	display:inline;
+	float:left;
+	background-color: #ffffff;
 }
 
-*/
+/*** HEADER RULES ***/
+
+.lpHeaderContainer{
+	background-color: #000000;
+	color: yellow;
+	text-align: center;
+	padding-top: 10px; 
+	padding-bottom: 20px;
+}
+
+.lpHeaderText{
+	font-size: 350%;
+	color: yellow;
+}
+
+.lpHeaderText:hover{
+	color: #ffffff;
+}
+
+.lpHeaderSubtext{
+	font-size: 90%;
+}
+
+.spanLINKEDin{
+	background-color: #ffffff;
+	color: #000000;
+	font-weight: bold;
+}
+.spanLinkedIN{
+	background-color: #007bb5;
+	color:#FFFFFF;
+	font-weight: bold;
+}
+
+.linkContainer{
+	text-decoration:none;
+	font-size: 100%;
+}
+
+.linkContainer:hover{
+	text-decoration:none;
+	font-size: 200%;
+
+}
+
+.linkInvisible{
+	text-decoration: none;
+}
+
+/*** END HEADER RULES ***/
+
+/*** LEFT PANEL BUTTON RULES **/
+.lpButton{
+	width 100%;
+	padding: 5px;
+	text-align: center;
+	font-size: 150%;
+	color: yellow;
+	background-color: #000000;
+	border: 2px solid yellow;
+}
+
+.lpButton:hover{
+	width 100%;
+	padding: 5px;
+	text-align: center;
+	font-size: 250%;
+	color: #ffffff;
+	background-color: #000000;
+	border: 2px solid yellow;
+}
+
+
+/*** END LEFT PANEL BUTTON RULES***/
+
+
+/*** RIGHT PANEL RULES ***/
+
+.rpHeader{
+	padding: 5%;
+	font-size: 400%;
+	color: #000000;
+}
+
+.rpContent{
+	padding: 5%;
+	font-size: 150%;
+	color #000000;
+}
+
+/*** END RIGHT PANEL RULES ***/
+
+
+/*** FONT SIZES FOR ICONS ***/
+.fs100{
+	font-size: 100%;
+}
+.fs150{
+	font-size: 150%;
+}
+.fs200{
+	font-size: 200%;
+}
+.fs250{
+	font-size: 250%;
+}
+.fs300{
+	font-size: 300%;
+}
+/*** END FONT SIZES FOR ICONS ***/
