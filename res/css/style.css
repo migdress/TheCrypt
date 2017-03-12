@@ -14,7 +14,7 @@ body{
 .mainPanel{
 	position: absolute;
 	width: 100%;
-	height: 100%;
+	height: 1080px;
 	border-collapse: collapse;
 	border: none;
 }
@@ -88,7 +88,7 @@ body{
 
 /*** LEFT PANEL BUTTON RULES **/
 .lpButton{
-	width 100%;
+	width: 100%;
 	padding: 5px;
 	text-align: center;
 	font-size: 150%;
@@ -98,13 +98,41 @@ body{
 }
 
 .lpButton:hover{
-	width 100%;
+	width: 100%;
 	padding: 5px;
 	text-align: center;
 	font-size: 250%;
 	color: #ffffff;
 	background-color: #000000;
 	border: 2px solid yellow;
+}
+
+.lpEntry{
+	width: 100%;
+	padding: 5px;
+	text-align: center;
+	font-size: 100%;
+	background-color: #999999;
+	color: #ffffff;
+	cursor: pointer;
+	border: 1px solid yellow;
+}
+
+.lpEntry:hover{
+	width: 100%;
+	padding: 5px;
+	text-align: center;
+	font-size: 150%;
+	background-color: #999999;
+	color: #000000;
+	cursor: pointer;
+	border: 1px solid yellow;
+}
+
+.lpHelp{
+	width:100%;
+	padding: 5px;
+	font-size:120%;
 }
 
 
@@ -119,11 +147,51 @@ body{
 	color: #000000;
 }
 
+.rpSubHeader{
+	padding 5%;
+	font-size:150%;
+}
+
 .rpContent{
 	padding: 5%;
 	font-size: 150%;
 	color #000000;
 }
+
+.inputArea{
+	width: 100%;
+	background-color: #000000;
+	color: yellow;
+	font-size: 100%;
+	font-weight: bold;
+	border: none;
+}
+
+.inputButton{
+	width: 100%;
+	background-color:#000000;
+	color: yellow;
+	cursor: pointer;
+	text-align: center;
+}
+
+.inputButton:hover{
+	width: 100%;
+	background-color:yellow;
+	color: #000000;
+	cursor: pointer;
+	text-align: center;
+}
+
+.outputArea{
+	width: 100%;
+	background-color: #000000;
+	color: yellow;
+	font-size: 100%;
+	font-weight: bold;
+}
+
+
 
 /*** END RIGHT PANEL RULES ***/
 
