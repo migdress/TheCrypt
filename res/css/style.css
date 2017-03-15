@@ -69,6 +69,12 @@ body{
 	font-weight: bold;
 }
 
+.spanTheCrypt{
+	color: yellow;
+	/*the line below adds border shadow to the text*/
+	text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
 .linkContainer{
 	text-decoration:none;
 	font-size: 100%;
@@ -142,18 +148,29 @@ body{
 /*** RIGHT PANEL RULES ***/
 
 .rpHeader{
-	padding: 5%;
+	padding-left: 2%;
+	padding-right: 2%;
 	font-size: 400%;
+	text-align: center;
 	color: #000000;
 }
 
+.headerButton{
+	background-color: #000000;
+	color: yellow;
+	font-size: 200%;
+	text-align: center;
+}
+
 .rpSubHeader{
-	padding 5%;
+	padding-left: 2%;
+	padding-right: 2%;
 	font-size:150%;
 }
 
 .rpContent{
-	padding: 5%;
+	padding-left: 2%;
+	padding-right: 2%;
 	font-size: 150%;
 	color #000000;
 }
@@ -181,6 +198,32 @@ body{
 	color: #000000;
 	cursor: pointer;
 	text-align: center;
+}
+
+.inlineButton{
+	width: 100px;
+	background-color: #000000;
+	color: yellow;
+	cursor: pointer;
+	text-align: center;
+	display: inline;
+	padding-left: 5px;
+	padding-right: 5px;
+	border: 2px solid yellow;
+    
+}
+
+.inlineButton:hover{
+	width: 100px;
+	background-color: #000000;
+	color: yellow;
+	cursor: pointer;
+	text-align: center;
+	font-size: 150%;
+	display: inline;
+	padding-left:5px;
+	padding-right:5px;
+	border: 2px solid yellow;
 }
 
 .outputArea{
