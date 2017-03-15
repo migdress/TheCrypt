@@ -151,15 +151,29 @@ body{
 	padding-left: 2%;
 	padding-right: 2%;
 	font-size: 400%;
-	text-align: center;
 	color: #000000;
 }
 
 .headerButton{
+	width: 500px;
 	background-color: #000000;
 	color: yellow;
-	font-size: 200%;
+	cursor: pointer;
 	text-align: center;
+	padding-left: 5px;
+	padding-right: 5px;
+	border: 2px solid yellow;
+}
+
+.headerButton:hover{
+	width: 500px;
+	background-color: yellow;
+	color: #000000;
+	cursor: pointer;
+	text-align: center;
+	padding-left: 5px;
+	padding-right: 5px;
+	border: 2px solid yellow;
 }
 
 .rpSubHeader{

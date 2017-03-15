@@ -1,16 +1,22 @@
-<div class="rpHeader">THEORY > Base64 <div class="headerButton">GO TO PRACTICE</div></div><hr>
+<div class="rpHeader">THEORY > Base64 </div><hr>
+<div class="headerButton fs200" onclick="render('res/html/practiceBase64.html')" style="width:100%;">GO TO PRACTICE</div><hr>
 <div class="rpContent">
 	Base64 is the representation of information using the following alphabet:<br>
-	<img src="https://blogs.oracle.com/rammenon/resource/WindowsLiveWriter-WhatisBase64_14272/base64table.jpg" alt="Base64 Alphabet"
-																											style="width:750px;height:350px">
-	<p><strong>How does work?:</strong><br><br>
+	<img src="https://blogs.oracle.com/rammenon/resource/WindowsLiveWriter-WhatisBase64_14272/base64table.jpg" 
+	  alt="Base64 Alphabet" 
+   style="width:750px;height:350px">
+	<p>
+	<strong>How does work?:</strong><br><br>
 	<strong>Step 1:</strong><br>
 	A character is transformed to its numeric value according to the charset,
-	normally UTF-8, originally ASCII.<br>
+	normally UTF-8, originally ASCII, for example the character 'M' has the value '77' in ASCII<br><br>
 	<strong>Step 2:</strong><br>
-	Represent the numeric value (which is base 10) to base2 or binary, conforming groups of 8 bits (It's important to understand that there have to be 8 bits no matter zeros
-	ahead).<br>
+	The numeric value (which is base 10) is converted to base2 or binary, conforming groups of 8 bits
+	<strong>(It's important to understand that there have to be 8 bits, adding zeros ahead if needed)</strong>, 
+	for example the numeric value '77' is represented with the 8-bit binary value '01001101'.
+	<br><br>
 	<strong>Step 3:</strong><br>
-	grouping the bits by 6 (Because 2*2*2*2*2*2=64, that's actually which is named base64) to represent a value of the alphabet.
+	The total length of the 8-bit binary stream needs to be an exact multiple of 24, so for example for the 8-bit binary value '01001101' 
+	to be encoded to base64, 16 bits more need to be added resulting a binary string like this '01001101<strong>0000000000000000</strong>'(Because 2*2*2*2*2*2=64, that's actually which is named base64) to represent a value of the alphabet.
 	</p>
 </div>
