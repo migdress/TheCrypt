@@ -155,24 +155,24 @@ body{
 }
 
 .headerButton{
-	width: 500px;
+	width: 96%;
 	background-color: #000000;
 	color: yellow;
 	cursor: pointer;
 	text-align: center;
-	padding-left: 5px;
-	padding-right: 5px;
+	margin-left: 2%;
+	margin-right: 2%;
 	border: 2px solid yellow;
 }
 
 .headerButton:hover{
-	width: 500px;
+	width: 96%;
 	background-color: yellow;
 	color: #000000;
 	cursor: pointer;
 	text-align: center;
-	padding-left: 5px;
-	padding-right: 5px;
+	margin-left: 2%;
+	margin-right: 2%;
 	border: 2px solid yellow;
 }
 

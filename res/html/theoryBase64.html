@@ -1,11 +1,11 @@
 <div class="rpHeader">THEORY > Base64 </div><hr>
-<div class="headerButton fs200" onclick="render('res/html/practiceBase64.html')" style="width:100%;">GO TO PRACTICE</div><hr>
+<div class="headerButton fs200" onclick="render('res/html/practiceBase64.html')">GO TO PRACTICE</div><hr>
 <div class="rpContent">
-	Base64 is the representation of information using the following alphabet:<br>
-	<img src="https://blogs.oracle.com/rammenon/resource/WindowsLiveWriter-WhatisBase64_14272/base64table.jpg" 
+	Base64 is the representation of information using the following alphabet:<br><br>
+	<img src="http://www.danzig.jct.ac.il/tcp-ip-lab/ibm-tutorial/3376t19.gif"
 	  alt="Base64 Alphabet" 
-   style="width:750px;height:350px">
-	<p>
+	  style="width:700px;height:250px">
+	<br>
 	<strong>How does work?:</strong><br><br>
 	<strong>Step 1:</strong><br>
 	A character is transformed to its numeric value according to the charset,
@@ -17,6 +17,9 @@
 	<br><br>
 	<strong>Step 3:</strong><br>
 	The total length of the 8-bit binary stream needs to be an exact multiple of 24, so for example for the 8-bit binary value '01001101' 
-	to be encoded to base64, 16 bits more need to be added resulting a binary string like this '01001101<strong>0000000000000000</strong>'(Because 2*2*2*2*2*2=64, that's actually which is named base64) to represent a value of the alphabet.
-	</p>
+	to be encoded to base64, 16 bits more need to be added resulting a binary string like this '01001101<strong>0000000000000000</strong>',
+	then the 24 bit stream is divided into groups of 6 bits (because 2<sup>6</sup>=64), resulting something like this '010011''010000'
+	'000000'000000', those values are represented in base 10 as '19''16''0''0', resulting something like this '
+	
+	(Because 2*2*2*2*2*2=64, that's actually which is named base64) to represent a value of the alphabet.
 </div>

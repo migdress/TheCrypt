@@ -1,3 +1,6 @@
+/* START Constants */
+var base64Alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0","1","2","3","4","5","6","7","8","9","+","/"];
+/* END Contants */
 function loadLeftPanel(){
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
@@ -42,6 +45,16 @@ function loadPracticeContent(){
 	}
 }
 
+function loadTableBase64(){
+	console.log("Called method loadTableBase64()");
+	var tableHTML = "<table style='border: 1px solid black;'>";
+	for(i=0;i<Math.floor(base64Alphabet.length/4);i++){
+		tableHTML = tableHTML +"<tr><th>"+[convertToBinary(i)]+":</th><td>"+base64Alphabet[i]+"</td></tr>";
+	}
+	tableHTML = tableHTML +"</table>";
+	document.getElementById("tableBase64").innerHTML = tableHTML;
+}
+
 function render(page){
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
@@ -66,12 +79,12 @@ function encodeBase64Extended(){
 	var input = document.getElementById("input").value;
 	var charCodeArray = convertStringToCharCodeArray(input);
 	document.getElementById("output1").innerHTML = charCodeArray.toString();
-	var binary8bitString = convertCharCodeArrayTo8BinaryString(charCodeArray);
-	document.getElementById("output2").innerHTML = binary8bitString;
-	var binary6bitString = convertBinary8StringToBinary6String(binary8bitString.replace(/,/g,""));
-	document.getElementById("output3").innerHTML = binary6bitString;
-	var base64String = 	convertBinary6StringToBase64(binary6bitString.replace(/,/g,""));
-	document.getElementById("output4").innerHTML = base64String;
+	var binary8bitArray = convertCharCodeArrayTo8BinaryArray(charCodeArray);
+	document.getElementById("output2").innerHTML = binary8bitArray;
+	var binary6bitArray = convertBinary8StringToBinary6Array((binary8bitArray.toString()).replace(/,/g,""));
+	document.getElementById("output3").innerHTML = binary6bitArray;
+	var base64Array = 	convertBinary6StringToBase64Array(binary6bitArray.toString().replace(/,/g,""));
+	document.getElementById("output4").innerHTML = base64Array.toString().replace(/,/g,"");
 }
 
 function convertToBinary(number){
@@ -93,7 +106,7 @@ function convertBinaryToDecimal(binary){
 	return parseInt(binary, 2);
 }
 
-function convertCharCodeArrayTo8BinaryString(array){
+function convertCharCodeArrayTo8BinaryArray(array){
 	var binArray = [];
 	for(var i=0;i<array.length;i++){
 		binArray[i] = complete8bits(convertToBinary(array[i]));
@@ -101,7 +114,7 @@ function convertCharCodeArrayTo8BinaryString(array){
 	}
 	return binArray.toString();	
 }
-function convertBinary8StringToBinary6String(binary8String){
+function convertBinary8StringToBinary6Array(binary8String){
 	var start = 0;
 	var end = 6;
 	var binary6bits = "";
@@ -110,8 +123,10 @@ function convertBinary8StringToBinary6String(binary8String){
 	console.log("Converting 8bit string to 6 bit string...");
 	console.log("initial length = "+binary8String.length);
 	console.log("rest = "+rest);
-	for(var i=0;i<(24-rest);i++){
-		binary8String = binary8String +"0";
+	if(rest!=0){
+		for(var i=0;i<(24-rest);i++){
+			binary8String = binary8String +"0";
+		}
 	}
 	console.log("posterior length = "+binary8String.length);
 	for(var i=0; i<(binary8String.length/6);i++){
@@ -121,7 +136,7 @@ function convertBinary8StringToBinary6String(binary8String){
 		start = start +6;
 		end = end + 6;
 	}
-	return result.toString();
+	return result;
 }
 
 function convertStringToCharCodeArray(string){
@@ -140,13 +155,12 @@ function complete8bits(binary){
 	return binary;
 }
 
-function convertBinary6StringToBase64String(binary6String){
-	var base64Alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0","1","2","3","4","5","6","7","8","9","+","/"];
+function convertBinary6StringToBase64Array(binary6String){
 	console.log("alphabet length: "+base64Alphabet.length);
 	var start = 0;
 	var end = 6;
 	var binary6bits="";
-	var result = "";
+	var result = [];
 	var decimal = 0;
 	var last2bitsFromPrevious = "";
 	console.log("length of string: "+binary6String.length);
