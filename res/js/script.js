@@ -87,6 +87,10 @@ function encodeBase64Extended(){
 	document.getElementById("output4").innerHTML = base64Array.toString().replace(/,/g,"");
 }
 
+function decodeBase64Extended(){
+	var input = document.getElementById("input").value;
+}
+
 function convertToBinary(number){
 	/*bin = [];
 	var i = 0;
