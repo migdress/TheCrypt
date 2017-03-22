@@ -83,7 +83,6 @@ body{
 .linkContainer:hover{
 	text-decoration:none;
 	font-size: 200%;
-
 }
 
 .linkInvisible{
@@ -145,7 +144,7 @@ body{
 /*** END LEFT PANEL BUTTON RULES***/
 
 
-/*** RIGHT PANEL RULES ***/
+/*** START RIGHT PANEL RULES ***/
 
 .rpHeader{
 	padding-left: 2%;
@@ -238,6 +237,15 @@ body{
 	border: none;
 }
 
+.inputNumber{
+	width: 100%;
+	background-color: #000000;
+	color: yellow;
+	font-size: 100%;
+	font-weight: bold;
+	border: none;
+}
+
 .inputButton{
 	width: 100%;
 	background-color:#000000;
@@ -287,10 +295,40 @@ body{
 	font-weight: bold;
 }
 
+.rpTableLayout60{
+	width: 60%;
+	margin: 0px;
+	padding: 0px;
+}
 
+.rpTableLayout100{
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
 
-/*** END RIGHT PANEL RULES ***/
+.flagTRUE{
+	width: 100%;
+	background-color: green;
+	color: #ffffff;
+	font-size: 150%;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 5px;
+	margin-bottom: 0px;
+}
 
+.flagFALSE{
+	width: 100%;
+	background-color: red;
+	color: #ffffff;
+	font-size: 150%;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
 
 /*** FONT SIZES FOR ICONS ***/
 .fs100{

@@ -1,6 +1,10 @@
-/*START Constants */
+/*** START Constants ***/
 var base64Alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0","1","2","3","4","5","6","7","8","9","+","/"];
-/* END Contants */
+/*** END Contants ***/
+
+/*** START GLOBAL VARIABLES ***/
+var congruenceRowsNumber = 2;
+/*** END GLOBAL VARIABLES ***/
 
 function loadLeftPanel(){
 	var xhttp = new XMLHttpRequest();
@@ -270,7 +274,33 @@ function convertBinary6StringToBase64Array(binary6String){
 
 /*** END BASE 64 ENCODING AND DECODING ***/
 
+/*** START CONGRUENCE RELATIONSHIP ***/
+function checkCongruence(){
+	var input1 =0;
+	var input2 =0;
+	input1 = document.getElementById("input1").value;
+	input2 = document.getElementById("input2").value;
+	var module = document.getElementById("module").value;
+	var exactMultiple = Math.abs(input2 - input1)%module;
+	restInputADividedModule = input1%module;
+	document.getElementById("output1").innerHTML = input1+" module "+module+" is "+restInputADividedModule;
+	restInputBDividedModule = input2%module;
+	document.getElementById("output2").innerHTML = input2+" module "+module+" is "+restInputBDividedModule;
+	if(exactMultiple == 0){
+		document.getElementById("output3").innerHTML =" "+ (input2/1)+" - "+(input1/1)+" is multiple of "+module; 
+	}else{
+		document.getElementById("output3").innerHTML =" "+ (input2/1)+" - "+(input1/1)+" is NOT multiple of "+module; 
+	}
+	if(restInputADividedModule == restInputBDividedModule && exactMultiple == 0){
+		document.getElementById("output4").innerHTML = "CONGRUENCE IS TRUE";
+		document.getElementById("output4").className = "flagTRUE";
+	}else{
+		document.getElementById("output4").innerHTML = "CONGRUENCE IS FALSE";
+		document.getElementById("output4").className = "flagFALSE";
+	}
+}
 
+/*** END CONGRUENCE RELATIONSHIP ***/
 
 
 

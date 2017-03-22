@@ -1,0 +1,39 @@
+<div class="rpHeader">PRACTICE> Congruence Relationship</div><hr>
+<div class="headerButton fs150" onclick="render('res/html/theoryCongruence.html')">GO TO THEORY</div>
+<hr>
+<div class="rpContent">
+	<div class="rpSubHeader">Inputs: </div><br>
+	<table class="rpTableLayout60">
+		<tr>
+			<td>Enter number 1:</td>
+			<td>
+				<input id="input1" type="number" class="inputNumber" placeholder="Enter a number here">
+			</td>
+		</tr>
+		<tr>
+			<td>Enter number 2:</td>
+			<td>
+				<input id="input2" type="number" class="inputNumber" placeholder="Enter another number here">
+			</td>
+		</tr>
+		<div id ="inputRows"></div>
+		<tr>
+			<td>Enter module:</td>
+			<td>
+				<input id="module" type="number" class="inputNumber" placeholder="Enter module here" value=10>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<div class="inputButton" onclick="checkCongruence()">CLICK HERE TO CHECK CONGRUENCE</div>
+				<textarea id="output4" class="outputArea" name="output" placeholder="The validation will appear here"></textarea>
+				<textarea id="output1" class="outputArea" name="output" placeholder="The rest of numberA/module will appear here"></textarea>
+				<textarea id="output2" class="outputArea" name="output" placeholder="The rest of numberB/module will appear here"></textarea>
+				<textarea id="output3" class="outputArea" name="output" placeholder="More useful info will appear here"></textarea>
+			</td>
+		</tr>
+	</table>
+	<p id="outputMessage" class="outputMessage"></p>
+
+</div>
+
