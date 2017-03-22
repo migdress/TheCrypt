@@ -1,6 +1,7 @@
-/* START Constants */
+/*START Constants */
 var base64Alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0","1","2","3","4","5","6","7","8","9","+","/"];
 /* END Contants */
+
 function loadLeftPanel(){
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
@@ -76,6 +77,7 @@ function encodeBase64(){
 }
 
 function encodeBase64Extended(){
+	console.log("Called method 'encondeBase64Extended'");
 	var input = document.getElementById("input").value;
 	var charCodeArray = convertStringToCharCodeArray(input);
 	document.getElementById("output1").innerHTML = charCodeArray.toString();
@@ -88,21 +90,92 @@ function encodeBase64Extended(){
 }
 
 function decodeBase64Extended(){
+	console.log("Called method 'decodeBase64Extended'");
 	var input = document.getElementById("input").value;
+	var base64CharArray = input.split("");
+	var binary6Array = covertBase64CharArraytoBinary6Array(base64CharArray);
+	document.getElementById("output1").innerHTML = binary6Array;
+	var binary8Array = convertBinary6StringToBinary8Array(binary6Array.toString().replace(/,/g,""));
+	document.getElementById("output2").innerHTML = binary8Array; 
+	var asciiValuesArray = convertBinary8ArrayToAsciiArray(binary8Array);
+	document.getElementById("output3").innerHTML = asciiValuesArray;
+	var plainText = convertAsciiValuesArrayToCharArray(asciiValuesArray);
+	document.getElementById("output4").innerHTML = plainText.toString().replace(/,/g,"");
+
+	
+}
+
+function covertBase64CharArraytoBinary6Array(base64CharArray){
+	console.log("Called method 'convertBase64CharArrayToBinary6Array'");
+	console.log("base64CharArray length is: "+base64CharArray.length);
+	console.log("converting...");
+	result = [];
+	for(var i=0; i<base64CharArray.length;i++){
+		for(var j=0;j<base64Alphabet.length;j++){
+			if(base64CharArray[i] == base64Alphabet[j]){
+				result[i] = convertToBinaryNBits(j, 6);
+				break;
+			}
+			else if(base64CharArray[i] == "="){
+				result[i] = "000000";
+				break;
+			}
+		}
+	}
+	console.log("success, returning vaue...");
+	return result;
+}
+
+function convertBinary6StringToBinary8Array(binary6String){
+	console.log("Called method 'convertBinary6StringToBinary8Array'");
+	start = 0;
+	end = 8;
+	result = [];
+	console.log("binary6String length is: "+binary6String.length);
+	console.log("converting...");
+	for(i=0;i<Math.floor(binary6String.length/8);i++){
+		result[i]=binary6String.slice(start,end);
+		start = start +8;
+		end = end +8;
+	}
+	console.log("success, returning value");
+	return result;
+}
+
+function convertBinary8ArrayToAsciiArray(binary8Array){
+	console.log("Called method 'convertBinary8ArrayToAsciiArray'");
+	console.log("binary8Array length: "+binary8Array.length);
+	result = [];
+	console.log("converting...");
+	for(var i=0;i<binary8Array.length;i++){
+		result[i] = convertBinaryToDecimal(binary8Array[i]);
+	}
+	console.log("success, returning value...");
+	return result;
 }
 
 function convertToBinary(number){
-	/*bin = [];
-	var i = 0;
-	var rest = 0;
-	while(number>0){
-		rest = number%2;
-		bin[i] = rest;
-		number = Math.floor(number/2);
-		i++;
-	}
-	return parseInt(bin.toString());*/
 	return number.toString(2);
+}
+
+function convertAsciiValuesArrayToCharArray(asciiValuesArray){
+	console.log("Called method convertAsciiValuesArrayToCharArray'");
+	result = [];
+	console.log("asciiValuesArray length: "+asciiValuesArray.length);
+	console.log("converting...");
+	for(var i=0;i<asciiValuesArray.length;i++){
+		result[i] = String.fromCharCode(asciiValuesArray[i]);
+	}
+	console.log("success, returning values...");
+	return result;
+}
+
+function convertToBinaryNBits(number, numberOfBits){
+	var binary = convertToBinary(number);
+	while(binary.length<numberOfBits){
+		binary = "0"+binary;
+	}
+	return binary;
 }
 
 function convertBinaryToDecimal(binary){
@@ -111,41 +184,48 @@ function convertBinaryToDecimal(binary){
 }
 
 function convertCharCodeArrayTo8BinaryArray(array){
+	console.log("Called method 'convertCharCodeArrayTo8BinaryArray'");
 	var binArray = [];
+	console.log("charCodeArray length is: "+array.length);
+	console.log("converting...");
 	for(var i=0;i<array.length;i++){
 		binArray[i] = complete8bits(convertToBinary(array[i]));
-		console.log("converted index="+i+" "+binArray[i]);
 	}
-	return binArray.toString();	
+	console.log("convertion success, returning Value");
+	return binArray;	
 }
 function convertBinary8StringToBinary6Array(binary8String){
+	console.log("Called method 'convertBinary8StringToBinary6Array'");
 	var start = 0;
 	var end = 6;
 	var binary6bits = "";
 	var result = [];
 	var rest = binary8String.length % 24;
-	console.log("Converting 8bit string to 6 bit string...");
-	console.log("initial length = "+binary8String.length);
+	console.log("Checking exact multiple of 24...");
+	console.log("initial length of string = "+binary8String.length);
 	console.log("rest = "+rest);
 	if(rest!=0){
 		for(var i=0;i<(24-rest);i++){
 			binary8String = binary8String +"0";
 		}
 	}
-	console.log("posterior length = "+binary8String.length);
+	console.log("posterior length of string= "+binary8String.length);
+	console.log("Slicing...");
 	for(var i=0; i<(binary8String.length/6);i++){
 		binary6bits = binary8String.slice(start,end);
-		console.log(binary6bits);
 		result[i] = binary6bits;
 		start = start +6;
 		end = end + 6;
 	}
+	console.log("success, returning value...");
 	return result;
 }
 
 function convertStringToCharCodeArray(string){
+	console.log("Called method 'convertStringToCharCodeArray'");
 	stringArray = string.split("");
 	charCodeArray = [];
+	console.log("charCodeArray length is: "+string.length);
 	for(var i=0; i<stringArray.length; i++){
 		charCodeArray[i] = stringArray[i].charCodeAt(0);
 	}
@@ -160,6 +240,7 @@ function complete8bits(binary){
 }
 
 function convertBinary6StringToBase64Array(binary6String){
+	console.log("Called method 'convertBinary6StringToBase64Array'");
 	console.log("alphabet length: "+base64Alphabet.length);
 	var start = 0;
 	var end = 6;
@@ -168,10 +249,9 @@ function convertBinary6StringToBase64Array(binary6String){
 	var decimal = 0;
 	var last2bitsFromPrevious = "";
 	console.log("length of string: "+binary6String.length);
-
+	console.log("converting...");
 	for(var i=0; i<(binary6String.length/6);i++){
 		binary6bits = binary6String.slice(start,end);
-		console.log("from "+start+" to "+end+" group "+i+" :"+binary6bits+" length: "+binary6bits.length);
 		if(i>0){
 			last2bitsFromPrevious = (binary6String.slice(start-6,end-6)).slice(4,6);
 			if(binary6bits == "000000" && last2bitsFromPrevious == "00"){
@@ -180,12 +260,11 @@ function convertBinary6StringToBase64Array(binary6String){
 			}
 		}
 		decimal = convertBinaryToDecimal(binary6bits);
-		console.log("decimal: "+decimal);
 		result = result + base64Alphabet[decimal];
-		console.log("base64 character: "+base64Alphabet[decimal]);
 		start = start +6;
 		end = end + 6;
 	}
+	console.log("success, returning value...");
 	return result;
 }
 
