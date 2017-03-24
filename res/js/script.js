@@ -302,7 +302,64 @@ function checkCongruence(){
 
 /*** END CONGRUENCE RELATIONSHIP ***/
 
+/*** START SIMPLE TRANSPOSITION ***/
+function encodeSimpleTransposition(){
+	console.log("Called method 'encodeSimpleTransposition'");
+	var inputString = document.getElementById("input").value;
+	var inputArray = inputString.split("");
+	var block1 = [];
+	var block2 = [];
+	var i1 = 0;
+	var i2 = 0;
+	var cipher = "";
+	console.log("input length: "+inputArray.length);
+	for(var i=0;i<inputArray.length;i++){
+		if(i%2 == 0){
+			block1[i1] = inputArray[i];
+			i1++;
+		}else{
+			block2[i2] = inputArray[i];
+			i2++;
+		}
+	}
+	cipher = block1.toString().replace(/,/g,"")+block2.toString().replace(/,/g,"");
+	document.getElementById("output1").innerHTML = block1.toString().replace(/,/g,"");
+	document.getElementById("output2").innerHTML = block2.toString().replace(/,/g,"");
+	document.getElementById("output3").innerHTML = cipher;
+}
 
+function decodeSimpleTransposition(){
+	console.log("Called method 'decodeSimpleTransposition'");
+	var inputString = document.getElementById("input").value;
+	var block1 = [];
+	var block2 = [];
+	var i1 = 0;
+	var i2 = 0;
+	var plainText = "";
+	console.log("cipher length: "+inputString.length);
+	if(inputString.length%2 == 0){
+		block1 = inputString.slice(0,inputString.length/2);
+		block2 = inputString.slice(inputString.length/2,inputString.length);
+		console.log("block1: "+block1.toString().replace(/,/g,""));
+	}else{
+		block1 = inputString.slice(0,Math.floor(inputString.length/2)+1);
+		block2 = inputString.slice(Math.floor(inputString.length/2)+1,inputString.length);
+		console.log("block2: "+block2.toString().replace(/,/g,""));
+	}
+	for(var i=0;i<inputString.length;i++){
+		if(i%2 == 0){
+			plainText = plainText + block1[i1];
+			i1++;
+		}else{
+			plainText = plainText + block2[i2];
+			i2++;
+		}
+	}
+	document.getElementById("output1").innerHTML = block1.toString().replace(/,/g,"");
+	document.getElementById("output2").innerHTML = block2.toString().replace(/,/g,"");
+	document.getElementById("output3").innerHTML = plainText;
+}
+/*** END SIMPLE TRANSPOSITION ***/
 
 
 
