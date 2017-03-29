@@ -1,0 +1,19 @@
+<div class="rpHeader">PRACTICE> Simple Transposition</div><hr>
+<div class="headerButton fs150" onclick="render('res/html/theorySimpleTransposition.html')">GO TO THEORY</div>
+<div class="rpActionContainer">
+	<div class="rpActionButtonSelected fs150" onclick="render('res/html/practiceSimpleTranspositionEncode.html')">ENCODE</div>
+	<div class="rpActionButton fs150" onclick="render('res/html/practiceSimpleTranspositionDecode.html')">DECODE</div>
+</div><br><br><hr>
+<div class="rpContent">
+	<div class="rpSubHeader">Input: </div><br>
+	<textarea id="input" class="inputArea" name="input" placeholder="Type the plain text here"></textarea>
+	<a class="linkInvisible" href="#labelOutput">
+		<div class="inputButton" onclick="encodeSimpleTransposition()">CLICK HERE TO ENCODE</div>
+	</a>
+	<br>
+	<div id="labelOutput" class="rpSubHeader">Output (BLOCK1/BLOCK2/ENCODED): </div><br>
+	<textarea id="output1" class="outputArea" name="output" placeholder="The block 1 will appear here"></textarea>
+	<textarea id="output2" class="outputArea" name="output" placeholder="The block 2 will appear here"></textarea>
+	<textarea id="output3" class="outputArea" name="output" placeholder="The encoded text will appear here"></textarea>
+</div>
+

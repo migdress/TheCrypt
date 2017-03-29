@@ -331,6 +331,12 @@ body{
 }
 
 /*** FONT SIZES FOR ICONS ***/
+.fs80{
+	font-size: 80%;
+}
+.fs50{
+	font-size: 50%;
+}
 .fs100{
 	font-size: 100%;
 }
@@ -347,3 +353,10 @@ body{
 	font-size: 300%;
 }
 /*** END FONT SIZES FOR ICONS ***/
+
+/*** START FONT COLORS ***/
+.fcRed{
+	color: red;
+}
+/*** END FONT COLORS ***/
+

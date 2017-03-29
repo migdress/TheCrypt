@@ -276,10 +276,8 @@ function convertBinary6StringToBase64Array(binary6String){
 
 /*** START CONGRUENCE RELATIONSHIP ***/
 function checkCongruence(){
-	var input1 =0;
-	var input2 =0;
-	input1 = document.getElementById("input1").value;
-	input2 = document.getElementById("input2").value;
+	var	input1 = document.getElementById("input1").value;
+	var input2 = document.getElementById("input2").value;
 	var module = document.getElementById("module").value;
 	var exactMultiple = Math.abs(input2 - input1)%module;
 	restInputADividedModule = input1%module;
@@ -302,11 +300,20 @@ function checkCongruence(){
 
 /*** END CONGRUENCE RELATIONSHIP ***/
 
+
 /*** START SIMPLE TRANSPOSITION ***/
 function encodeSimpleTransposition(){
 	console.log("Called method 'encodeSimpleTransposition'");
 	var inputString = document.getElementById("input").value;
-	var inputArray = inputString.split("");
+	var result = encodeSimpleTransp(inputString);
+	document.getElementById("output1").innerHTML = result["block1"].toString().replace(/,/g,"");
+	document.getElementById("output2").innerHTML = result["block2"].toString().replace(/,/g,"");
+	document.getElementById("output3").innerHTML = result["cipher"];
+}
+
+function encodeSimpleTransp(inputString){
+	var inputArray = inputString.split("");		
+	var result = [];
 	var block1 = [];
 	var block2 = [];
 	var i1 = 0;
@@ -316,37 +323,46 @@ function encodeSimpleTransposition(){
 	for(var i=0;i<inputArray.length;i++){
 		if(i%2 == 0){
 			block1[i1] = inputArray[i];
-			i1++;
+			i1++
 		}else{
 			block2[i2] = inputArray[i];
 			i2++;
 		}
 	}
 	cipher = block1.toString().replace(/,/g,"")+block2.toString().replace(/,/g,"");
-	document.getElementById("output1").innerHTML = block1.toString().replace(/,/g,"");
-	document.getElementById("output2").innerHTML = block2.toString().replace(/,/g,"");
-	document.getElementById("output3").innerHTML = cipher;
+	result["block1"] = block1;
+	result["block2"] = block2;
+	result["cipher"] = cipher;
+	return result;
 }
 
 function decodeSimpleTransposition(){
 	console.log("Called method 'decodeSimpleTransposition'");
 	var inputString = document.getElementById("input").value;
+	var result = decodeSimpleTransp(inputString);
+	document.getElementById("output1").innerHTML = result["block1"].toString().replace(/,/g,"");
+	document.getElementById("output2").innerHTML = result["block2"].toString().replace(/,/g,"");
+	document.getElementById("output3").innerHTML = result["plainText"];
+}
+
+function decodeSimpleTransp(cipher){
+	var result = [];
 	var block1 = [];
 	var block2 = [];
 	var i1 = 0;
 	var i2 = 0;
 	var plainText = "";
-	console.log("cipher length: "+inputString.length);
-	if(inputString.length%2 == 0){
-		block1 = inputString.slice(0,inputString.length/2);
-		block2 = inputString.slice(inputString.length/2,inputString.length);
+	console.log("cipher length: "+cipher.length);
+	if(cipher.length%2 == 0){
+		block1 = cipher.slice(0,cipher.length/2);
+		block2 = cipher.slice(cipher.length/2,cipher.length);
 		console.log("block1: "+block1.toString().replace(/,/g,""));
 	}else{
-		block1 = inputString.slice(0,Math.floor(inputString.length/2)+1);
-		block2 = inputString.slice(Math.floor(inputString.length/2)+1,inputString.length);
+		block1 = cipher.slice(0,Math.floor(cipher.length/2)+1);
+		block2 = cipher.slice(Math.floor(cipher.length/2)+1,cipher.length);
 		console.log("block2: "+block2.toString().replace(/,/g,""));
 	}
-	for(var i=0;i<inputString.length;i++){
+	for(var i=0;i<cipher.length;i++){
 		if(i%2 == 0){
 			plainText = plainText + block1[i1];
 			i1++;
@@ -355,11 +371,88 @@ function decodeSimpleTransposition(){
 			i2++;
 		}
 	}
-	document.getElementById("output1").innerHTML = block1.toString().replace(/,/g,"");
-	document.getElementById("output2").innerHTML = block2.toString().replace(/,/g,"");
-	document.getElementById("output3").innerHTML = plainText;
+	result["block1"] = block1;
+	result["block2"] = block2;
+	result["plainText"] = plainText;
+	return result;
 }
 /*** END SIMPLE TRANSPOSITION ***/
 
 
+/*** START DOUBLE TRANSPOSITION ***/
+function encodeDoubleTransposition(){
+	console.log("Called method 'encodeDoubleTransposition'");
+	var inputString = document.getElementById("input").value;
+	var result1 = encodeSimpleTransp(inputString);
+	document.getElementById("output1").innerHTML = result1["block1"].toString().replace(/,/g,"");
+	document.getElementById("output2").innerHTML = result1["block2"].toString().replace(/,/g,"");
+	document.getElementById("output3").innerHTML = result1["cipher"];
+	result1 = encodeSimpleTransp(result1["cipher"]);
+	document.getElementById("output4").innerHTML = result1["block1"].toString().replace(/,/g,"");
+	document.getElementById("output5").innerHTML = result1["block2"].toString().replace(/,/g,"");
+	document.getElementById("output6").innerHTML = result1["cipher"];
+}
 
+function decodeDoubleTransposition(){
+	console.log("Called method 'decodeDoubleTransposition'");
+	var cipher = document.getElementById("input").value;
+	var result1 = decodeSimpleTransp(cipher);
+	document.getElementById("output1").innerHTML = result1["block1"].toString().replace(/,/g,"");
+	document.getElementById("output2").innerHTML = result1["block2"].toString().replace(/,/g,"");
+	document.getElementById("output3").innerHTML = result1["plainText"];
+	result1 = decodeSimpleTransp(result1["plainText"]);
+	document.getElementById("output4").innerHTML = result1["block1"].toString().replace(/,/g,"");
+	document.getElementById("output5").innerHTML = result1["block2"].toString().replace(/,/g,"");
+	document.getElementById("output6").innerHTML = result1["plainText"];
+}
+/*** END DOUBLE TRANSPOSITION ***/
+
+/*** START GROUP TRANSPOSITION ***/
+
+function encodeGroupTransposition(){
+	var inputString = document.getElementById("input1").value;
+	var inputKey = document.getElementById("input2").value;
+	var result = encodeGroupTransp(inputString, inputKey);
+	document.getElementById("output1").innerHTML = result;
+}
+
+function encodeGroupTransp(inputString, inputKey){
+	result = "";
+	console.log("Called method 'encodeGroupTransp'");
+	cipherArray = [];
+	remaining = inputString.length % inputKey.length;
+	console.log("inputString length is: "+inputString.length);
+	console.log("keyString length is: "+inputKey.length);
+	console.log("Remaining character count is: "+remaining);
+	for(var i=0;i<(inputKey.length-remaining);i++){
+		inputString = inputString + "X";
+	}
+	console.log("The new input length is: "+inputString.length);
+	blocksCount = inputString.length / inputKey.length;
+	console.log("The number of blocks will be: "+blocksCount);
+	var start = 0;
+	var end = inputKey.length;
+	console.log("Slicing the inputString...");
+	for(var i=0;i<blocksCount;i++){
+		cipherArray[i] = inputString.slice(start,end);
+		start = start + inputKey.length;
+		end = end + inputKey.length;
+	}
+	console.log("Encrypting with key...");
+	keyArray = inputKey.split("");
+	for(var i=0;i<cipherArray.length;i++){
+		var clone = cipherArray[i].split("");
+		var ciphertext = "";
+		console.log("trying to encrypt '"+clone.toString().replace(/,/g,""));
+		for(var j=0; j<inputKey.length;j++){
+			console.log("extracting the index "+keyArray[j]);
+			console.log("character is: "+clone[parseInt(keyArray[j])-1]);
+			ciphertext = ciphertext + clone[parseInt(keyArray[j])-1];
+		}
+		result = result + ciphertext;
+	}
+	console.log("Success... returning value");
+	return result;
+}
+
+/*** END GROUP TRANSPOSITION ***/

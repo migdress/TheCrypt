@@ -1,0 +1,22 @@
+<div class="rpHeader">PRACTICE> Double Transposition</div><hr>
+<div class="headerButton fs150" onclick="render('res/html/theoryDoubleTransposition.html')">GO TO THEORY</div>
+<div class="rpActionContainer">
+	<div class="rpActionButton fs150" onclick="render('res/html/practiceDoubleTranspositionEncode.html')">ENCODE</div>
+	<div class="rpActionButtonSelected fs150" onclick="render('res/html/practiceDoubleTranspositionDecode.html')">DECODE</div>
+</div><br><br><hr>
+<div class="rpContent">
+	<div class="rpSubHeader">Input: </div><br>
+	<textarea id="input" class="inputArea" name="input" placeholder="Type the ciphertext here"></textarea>
+	<a class="linkInvisible" href="#labelOutput">
+		<div class="inputButton" onclick="decodeDoubleTransposition()">CLICK HERE TO DECODE</div>
+	</a>
+	<br>
+	<div id="labelOutput" class="rpSubHeader">Output (BLOCK1/BLOCK2/DECODED)<sup>2</sup>: </div><br>
+	<textarea id="output1" class="outputArea" name="output" placeholder="The block 1 will appear here"></textarea>
+	<textarea id="output2" class="outputArea" name="output" placeholder="The block 2 will appear here"></textarea>
+	<textarea id="output3" class="outputArea" name="output" placeholder="The ciphertext 1 will appear here"></textarea>
+	<textarea id="output4" class="outputArea" name="output" placeholder="The block 3 will appear here"></textarea>
+	<textarea id="output5" class="outputArea" name="output" placeholder="The block 4 will appear here"></textarea>
+	<textarea id="output6" class="outputArea" name="output" placeholder="The plain text  will appear here"></textarea>
+</div>
+

@@ -1,0 +1,21 @@
+<div class="rpHeader">PRACTICE> Group Transposition</div><hr>
+<div class="headerButton fs150" onclick="render('res/html/theoryGroupTransposition.html')">GO TO THEORY</div>
+<div class="rpActionContainer">
+	<div class="rpActionButtonSelected fs150" onclick="render('res/html/practiceGroupTranspositionEncode.html')">ENCODE</div>
+	<div class="rpActionButton fs150" onclick="render('res/html/practiceGroupTranspositionDecode.html')">DECODE</div>
+</div><br><br><hr>
+<div class="rpContent">
+	<div class="rpSubHeader">Input: </div><br>
+	<textarea id="input1" class="inputArea" name="input" placeholder="Type the plain text here"></textarea>
+	<textarea id="input2" class="inputArea" name="input" placeholder="Type the KEY here"></textarea>
+	<p class="fs80">Please be aware that the KEY has to be <strong>NUMERIC</strong> and there have to be <strong>CONSECUTIVE NUMBERS</strong>
+	from 1 to N, no matter the position, for example a valid KEY is '48237165' because it contains all the consecutive numbers 
+	from 1 to 8. <span class="fcRed">THERE ARE NO VALIDATIONS, if you mistake the algorithm won't work (this is temporary)</span></p>
+	<a class="linkInvisible" href="#labelOutput">
+		<div class="inputButton" onclick="encodeGroupTransposition()">CLICK HERE TO ENCRYPT</div>
+	</a>
+	<br>
+	<div id="labelOutput" class="rpSubHeader">Output (Ciphertext): </div><br>
+	<textarea id="output1" class="outputArea" name="output" placeholder="The encrypted text will appear here"></textarea>
+</div>
+
