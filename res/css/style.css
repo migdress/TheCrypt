@@ -195,7 +195,7 @@ body{
 }
 
 .rpActionButton{
-	width: 49.8%;
+	width: 48.8%;
 	display: inline;
 	float:left;
 	background-color: #000000;
@@ -206,7 +206,7 @@ body{
 }
 
 .rpActionButton:hover{
-	width: 49.8%;
+	width: 48.8%;
 	display: inline;
 	float:left;
 	background-color: yellow;
@@ -217,7 +217,7 @@ body{
 }
 
 .rpActionButtonSelected{
-	width: 49.8%;
+	width: 48.8%;
 	display: inline;
 	float:left;
 	background-color: yellow;
