@@ -6,6 +6,24 @@ var base64Alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O
 var congruenceRowsNumber = 2;
 /*** END GLOBAL VARIABLES ***/
 
+/* This function is intended to replace 'loadLeftPanel' by allowing
+ * reutilization of code*/
+function loadContent(divElementId, resource){
+	console.log("Called 'loadContent'");
+	console.log("Div to load: '"+divElementId+"'");
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if (this.readyState == 4 && this.status == 200) {
+			console.log("Trying to load into '"+divElementId+"'");
+			document.getElementById(divElementId).innerHTML = this.responseText;
+		}
+	};
+	var url = "res/html/"+resource;
+	console.log("Trying to load resource '"+url+"'");
+	xhttp.open("GET", url, true);
+	xhttp.send();
+}
+/*
 function loadLeftPanel(){
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
@@ -16,7 +34,7 @@ function loadLeftPanel(){
 	xhttp.open("GET", "res/html/leftPanel.html", true);
 	xhttp.send();
 }
-
+*/
 
 function loadTheoryContent(){
 	if(document.getElementById("theoryContent").innerHTML === ""){
