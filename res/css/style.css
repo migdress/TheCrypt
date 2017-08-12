@@ -185,46 +185,46 @@ body{
 	padding-left: 2%;
 	padding-right: 2%;
 	font-size: 150%;
-	color #000000;
+	color: #000000;
 }
 
 .rpActionContainer{
-	width 96%;
+	width: 96%;  
 	margin-left: 2%;
 	margin-right: 2%;
+  border: 2px solid yellow;
+  /** overflow allows the div to surround its content */  
+  overflow: auto;
 }
 
 .rpActionButton{
-	width: 48.8%;
+	width: 50%;
 	display: inline;
 	float:left;
 	background-color: #000000;
 	color: yellow;
 	cursor: pointer;
-	text-align: center;
-	border: 1px solid yellow;
+	text-align: center;	
 }
 
 .rpActionButton:hover{
-	width: 48.8%;
+	width: 50%;
 	display: inline;
 	float:left;
-	background-color: yellow;
+	background-color: white;
 	color: #000000;
 	cursor: pointer;
-	text-align: center;
-	border: 1px solid yellow;
+	text-align: center;	
 }
 
 .rpActionButtonSelected{
-	width: 48.8%;
+	width: 50%;
 	display: inline;
 	float:left;
 	background-color: yellow;
 	color: #000000;
 	cursor: pointer;
 	text-align: center;
-	border: 1px solid yellow;
 }
 
 

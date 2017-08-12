@@ -23,45 +23,31 @@ function loadContent(divElementId, resource){
 	xhttp.open("GET", url, true);
 	xhttp.send();
 }
-/*
-function loadLeftPanel(){
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			document.getElementById("leftPanel").innerHTML = this.responseText;
-		}
-	};
-	xhttp.open("GET", "res/html/leftPanel.html", true);
-	xhttp.send();
-}
-*/
 
-function loadTheoryContent(){
-	if(document.getElementById("theoryContent").innerHTML === ""){
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if(this.readyState == 4 && this.status == 200){
-			document.getElementById("theoryContent").innerHTML = this.responseText;
-		}
-	};
-	xhttp.open("GET", "res/html/theoryContent.html", true);
-	xhttp.send();
-	}
-	else {
-		document.getElementById("theoryContent").innerHTML = "";
-	}
+/**
+ * Shows or hides the theory content which is composed by
+ * a list of sections regarding to cryptography.
+ * 
+ * @returns {undefined}
+ */
+function loadTheoryContent() {
+  if (document.getElementById("theoryContent").innerHTML === "") {
+    loadContent("theoryContent","theoryContent.html");    
+  } else {
+    document.getElementById("theoryContent").innerHTML = "";
+  }
 }
 
+/**
+ * Shows or hides the practice content which is composed by
+ * a list of sections regarding to interactive applications
+ * of cyptography.
+ * 
+ * @returns {undefined}
+ */
 function loadPracticeContent(){
 	if(document.getElementById("practiceContent").innerHTML === ""){
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if(this.readyState == 4 && this.status == 200){
-			document.getElementById("practiceContent").innerHTML = this.responseText;
-		}
-	};
-	xhttp.open("GET", "res/html/practiceContent.html", true);
-	xhttp.send();
+    loadContent("practiceContent","practiceContent.html");
 	}
 	else {
 		document.getElementById("practiceContent").innerHTML = "";
