@@ -253,6 +253,7 @@ button:focus {outline:0;}
   font-size: 100%;
   font-weight: bold;
   border: none;
+  font-family: monospace;
 }
 
 .inputButton{
