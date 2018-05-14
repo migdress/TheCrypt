@@ -1,36 +1,52 @@
-<div class="lpHeaderContainer">
-	<a class="linkInvisible" href="index.html">
-		<div class="lpHeaderText">The Crypt</div>
-	</a>
-	<div class="lpHeaderSubtext" >
-		<strong><i>(UNDER CONSTRUCTION)</i></strong><br>
-    &copy; <script>console.log("SOMETHING");document.write("2089");</script>, Miguel Morcillo<br>
-		miguelmorcillo@unicauca.edu.co<br>
-		<a class="linkContainer" href="http://linkedin.com/in/migdress" target="_blank">
-			<span class="spanLINKEDin">Linked</span><span class="spanLinkedIN">in</span>
-		</a>
-	</div>				
-</div><br>
-<a class="linkInvisible" href="index.html">
-	<div class="lpButton">
-		HOME
-	</div>
-</a>
-<a class="linkInvisible" href="#">
-	<div class="lpButton" onclick="render('res/html/about.html')">
-		ABOUT
-	</div>
-</a>	
-<a class="linkInvisible" href="#">
-  <div class="lpButton" onclick="loadTheoryContent()">
-		THEORY
-	</div>
-</a>
-<div id="theoryContent"></div>
-<a class="linkInvisible" href="#">
-	<div class="lpButton" onclick="loadPracticeContent()">
-		PRACTICE
-	</div>
-</a>
-<div id="practiceContent"></div>
+<header id="lpHeaderContainer">
+  <a class="linkInvisible" href="index.html">
+    <div class="lpHeaderText">The Crypt</div>
+  </a>
+  <div class="lpHeaderSubtext" >
+    <strong><i>(UNDER CONSTRUCTION)</i></strong><br>
+    &copy;
+    <span id="currentYearLabel">
+      <script>
+        document.write("Fuck");
+      </script>  
+    </span>
+    ,Miguel Morcillo<br>    
+    miguelmorcillo@unicauca.edu.co<br>
+    <a class="linkContainer" href="http://linkedin.com/in/migdress" target="_blank">
+      <span class="spanLINKEDin">Linked</span><span class="spanLinkedIN">in</span>
+    </a>
+  </div>
+</header>
+
+
+<br>
+<ul id="lpMenuContainer">
+  <button type="button" id="lpOptionsButton">
+    <i class="fas fa-bars"></i>    
+  </button>
+  <li>
+    <a class="linkInvisible" href="index.html">
+      <div class="lpButton">
+        HOME
+      </div>
+    </a>
+  </li>
+  <li><a class="linkInvisible" href="#">
+      <div class="lpButton" onclick="render('res/html/about.html',1200)">
+        ABOUT
+      </div>
+    </a></li>	
+  <li><a class="linkInvisible" href="#">
+      <div class="lpButton" onclick="loadTheoryContent()">
+        THEORY
+      </div>
+    </a></li>
+  <div id="theoryContent"></div>
+  <li><a class="linkInvisible" href="#">
+      <div class="lpButton" onclick="loadPracticeContent()">
+        PRACTICE
+      </div>
+    </a></li>
+  <div id="practiceContent"></div>  
+</ul>
 

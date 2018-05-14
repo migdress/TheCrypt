@@ -1,5 +1,5 @@
 <div class="rpHeader">PRACTICE> Base 64</div><hr>
-<div class="headerButton fs150" onclick="render('res/html/theoryBase64.html')">GO TO THEORY</div>
+<div class="headerButton fs150" onclick="render('res/html/theoryBase64.html',2048,function(){drawBase64AlphabetTable();});">GO TO THEORY</div>
 <div class="rpActionContainer">
 	<div class="rpActionButtonSelected fs150" onclick="render('res/html/practiceBase64Encode.html')">ENCODE</div>
 	<div class="rpActionButton fs150" onclick="render('res/html/practiceBase64Decode.html')">DECODE</div>
@@ -11,10 +11,17 @@
 		<div class="inputButton" onclick="encodeBase64Extended()">CLICK HERE TO ENCODE</div>
 	</a>
 	<br>
-	<div id="labelOutput" class="rpSubHeader">Output (ASCII/8BIT-BINARY/6BIT-BINARY/BASE64): </div><br>
+	<div id="labelOutput" class="rpSubHeader">Output: </div>
+  <p>ASCII</p>
 	<textarea id="output1" class="outputArea" name="output" placeholder="The integer Ascii values will appear here"></textarea>
+  <br>
+  <p>8BIT-BINARY</p>
 	<textarea id="output2" class="outputArea" name="output" placeholder="The 8 bit binary values will appear here"></textarea>
+  <br>
+  <p>6BIT-BINARY</p>
 	<textarea id="output3" class="outputArea" name="output" placeholder="The 6 bit binary values will appear here"></textarea>
+  <br>
+  <p>BASE64</p>
 	<textarea id="output4" class="outputArea" name="output" placeholder="The encoded base64 values will appear here"></textarea>
 
 </div>

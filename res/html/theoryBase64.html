@@ -1,26 +1,25 @@
 <div class="rpHeader">THEORY > Base64 </div><hr>
 <div class="headerButton fs150" onclick="render('res/html/practiceBase64Encode.html')">GO TO PRACTICE</div><hr>
 <div class="rpContent">
-	Base64 is the representation of information using the following alphabet:<br><br>
-	<img src="http://www.danzig.jct.ac.il/tcp-ip-lab/ibm-tutorial/3376t19.gif"
-	  alt="Base64 Alphabet" 
-	  style="width:700px;height:350px">
-	<br><br>
-	<strong>How does work?:</strong><br><br>
-	<strong>Step 1:</strong><br>
-	A character is transformed to its numeric value according to the charset,
-	normally UTF-8, originally ASCII, for example the character 'M' has the value '77' in ASCII<br><br>
-	<strong>Step 2:</strong><br>
-	The numeric value (which is base 10) is converted to base2 or binary, conforming groups of 8 bits
-	<strong>(It's important to understand that there have to be 8 bits, adding zeros ahead if needed)</strong>, 
-	for example the numeric value '77' is represented with the 8-bit binary value '01001101'.
-	<br><br>
-	<strong>Step 3:</strong><br>
-	The total length of the 8-bit binary stream needs to be an exact multiple of 24, so for example for the 8-bit binary value '01001101' 
-	to be encoded to base64, 16 bits more need to be added resulting a binary string like this '01001101<strong>0000000000000000</strong>'.
-	<br><br>
-	<strong>Step 4:</strong><br>
-	The 24 bit stream is divided into groups of 6 bits (because 2<sup>6</sup>=64), resulting something like this '010011''010000'
-	'000000'000000', if there are 8 consecutive bits of zeros, the '=' will be used. So using the table shown above, the base64 values
-	will be 'T' 'Q' '=' '='.
+  Base64 is the representation of information using the following alphabet:<br><br>
+  <div id="base64Alphabet">    
+  </div>
+  <br>  
+  <strong>How does work?:</strong><br><br>
+  <strong>Step 1:</strong><br>
+  A character is transformed to its numeric value according to the charset,
+  normally UTF-8, originally ASCII, for example the character 'M' has the value '77' in ASCII<br><br>
+  <strong>Step 2:</strong><br>
+  The numeric value (which is base 10) is converted to base2 or binary, conforming groups of 8 bits
+  <strong>(It's important to understand that there have to be 8 bits, adding zeros ahead if needed)</strong>, 
+  for example the numeric value '77' is represented with the 8-bit binary value '01001101'.
+  <br><br>
+  <strong>Step 3:</strong><br>
+  The total length of the 8-bit binary stream needs to be an exact multiple of 24, so for example for the 8-bit binary value '01001101' 
+  to be encoded to base64, 16 bits more need to be added resulting a binary string like this '01001101<strong>0000000000000000</strong>'.
+  <br><br>
+  <strong>Step 4:</strong><br>
+  The 24 bit stream is divided into groups of 6 bits (because 2<sup>6</sup>=64), resulting something like this '010011''010000'
+  '000000'000000', if there are 8 consecutive bits of zeros, the '=' will be used. So using the table shown above, the base64 values
+  will be 'T' 'Q' '=' '='.
 </div>
